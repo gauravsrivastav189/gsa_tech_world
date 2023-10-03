@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .menu-item h2 {
+      margin: 0;
+    }
+
+    .menu-button {
+      display: inline-block;
+      padding: 5px 10px; /* Adjust padding to make buttons smaller */
+      background-color: #007BFF; /* Common background color */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .menu-button:hover {
+      background-color: #0056b3;
+    }
+
+    .home-link {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Style to move buttons to the top right */
+    .top-right {
+      text-align: right;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="{% url 'home' %}" class="menu-button">Home</a>
+  </header>
+  <div class="container">
+    <p>Hello {{ user.username }}, this is the profile page.</p>
+
+    <div class="menu-item">
+      <a href="{% url 'logout' %}" class="menu-button top-right">Logout</a>
+    </div>
+  </div>
+</body>
+</html>

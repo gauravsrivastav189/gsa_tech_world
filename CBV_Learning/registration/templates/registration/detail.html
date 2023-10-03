@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+    }
+
+    .container {
+      width: 100%; /* Set the width to 100% */
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+
+    .home-link {
+      text-decoration: none;
+      color: #007BFF; /* Set the color to blue */
+    }
+
+    .home-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Style for the home link within the header */
+    .header-home-link {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #fff; /* Set the color to white */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Home button within the header -->
+    <a href="{% url 'home' %}" class="header-home-link">Home</a>
+    <!-- Profile Page heading -->
+    <h1>Profile Page</h1>
+  </header>
+  <div class="container">
+    <p>Hello {{ u.username }}, </p>
+
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+      </thead>
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.password }}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

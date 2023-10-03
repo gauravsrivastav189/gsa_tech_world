@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navigation Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+    }
+
+    .menu-item {
+      margin-bottom: 10px;
+    }
+
+    .menu-item a {
+      display: block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .menu-item a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navigation Menu</h1>
+  </header>
+  <div class="container">
+    <div class="menu-item">
+      <h2>Profile</h2>
+      <a href="{% url 'profile' %}">Go to Profile</a>
+    </div>
+
+    <div class="menu-item">
+      <h2>Login</h2>
+      <a href="{% url 'login' %}">Login Page</a>
+    </div>
+
+    <div class="menu-item">
+      <h2>Logout</h2>
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    <div class="menu-item">
+      <h2>Show All User Details(ListView)</h2>
+      <a href="{% url 'show' %}">Show Details of All Users</a>
+    </div>
+
+    <div class="menu-item">
+      {% if user.is_authenticated %}
+        <h2>Welcome, {{ user.username }}!</h2>
+        <a href="{% url 'profile' %}">View Your Profile</a>
+      {% else %}
+        <h2>login to see your details</h2>
+        
+      {% endif %}
+    </div>
+    
+
+    
+  </div>
+</body>
+</html>
